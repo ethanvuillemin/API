@@ -36,4 +36,4 @@ Hug est un framework web léger qui met l'accent sur la facilité d'utilisation 
 Il est important de noter que les caractéristiques mentionnées ci-dessus peuvent évoluer avec le temps, car les frameworks sont régulièrement mis à jour
 
 
-"""
+
