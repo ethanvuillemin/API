@@ -33,16 +33,7 @@ Django est un framework web complet et puissant, connu pour ses fonctionnalités
 ### Hug
 Hug est un framework web léger qui met l'accent sur la facilité d'utilisation et la rapidité de développement. Il offre une excellente scalabilité et supporte l'asynchronicité. Hug est particulièrement adapté pour les projets où la génération automatique de l'API est importante, mais il ne dispose pas d'une aussi grande communauté que les autres frameworks.
 
-Il est important de noter que les caractéristiques mentionnées ci-dessus peuvent évoluer avec le temps, car les frameworks sont régulièrement mis à jour et améliorés.
+Il est important de noter que les caractéristiques mentionnées ci-dessus peuvent évoluer avec le temps, car les frameworks sont régulièrement mis à jour
 
-N'hésitez pas à consulter la documentation officielle de chaque framework pour plus de détails et à prendre en compte les spécificités de votre projet lors du choix du framework adapté.
-
-Flask : https://flask.palletsprojects.com/
-
-FastAPI : https://fastapi.tiangolo.com/
-
-Django : https://docs.djangoproject.com/
-
-Hug : https://www.hug.rest/
 
 """
