@@ -36,4 +36,9 @@ Hug est un framework web léger qui met l'accent sur la facilité d'utilisation 
 Il est important de noter que les caractéristiques mentionnées ci-dessus peuvent évoluer avec le temps, car les frameworks sont régulièrement mis à jour et améliorés.
 
 N'hésitez pas à consulter la documentation officielle de chaque framework pour plus de détails et à prendre en compte les spécificités de votre projet lors du choix du framework adapté.
+
+Flask : https://flask.palletsprojects.com/
+FastAPI : https://fastapi.tiangolo.com/
+Django : https://docs.djangoproject.com/
+Hug : https://www.hug.rest/
 """
