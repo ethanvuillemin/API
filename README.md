@@ -38,7 +38,11 @@ Il est important de noter que les caractéristiques mentionnées ci-dessus peuve
 N'hésitez pas à consulter la documentation officielle de chaque framework pour plus de détails et à prendre en compte les spécificités de votre projet lors du choix du framework adapté.
 
 Flask : https://flask.palletsprojects.com/
+
 FastAPI : https://fastapi.tiangolo.com/
+
 Django : https://docs.djangoproject.com/
+
 Hug : https://www.hug.rest/
+
 """
