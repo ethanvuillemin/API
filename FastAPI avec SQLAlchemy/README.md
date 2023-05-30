@@ -1,4 +1,4 @@
-# FastAPI avec SQLAlchemy et Sphinx Autodoc
+# FastAPI avec SQLAlchemy
 
 Ce projet est un exemple de configuration d'une application FastAPI avec l'utilisation de SQLAlchemy pour la gestion de la base de données. (Il est également compatible avec la génération de la documentation automatique avec Sphinx Autodoc).
 
