@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Contenu du bar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../static/read_all_.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Contenu du bar</h1>
+
+    <h2>Nouvelle référence :</h2>
+
+    <form id="createVariableForm">
+      <div class="form-group">
+        <label for="nameInput">Nom :</label>
+        <input type="text" class="form-control" id="nameInput" required>
+      </div>
+      <div class="form-group">
+        <label for="contentInput">Contenu :</label>
+        <input type="number" class="form-control" id="contentInput" required>
+      </div>
+      <div class="form-group">
+        <label for="typeInput">Type :</label>
+        <input type="text" class="form-control" id="typeInput" required>
+      </div>
+      <div class="form-group">
+        <label for="subCategoryInput">Sous-catégorie :</label>
+        <input type="text" class="form-control" id="subCategoryInput" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Ajouter</button>
+    </form>
+    <br>
+    <table id="barTable" class="display">
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Contenu</th>
+          <th>Type</th>
+          <th>Sous-catégorie</th>
+          <th>Actions</th> 
+        </tr>
+      </thead>
+      <tbody>
+        {% for variable in bars %}
+        <tr>
+          <td>{{ variable.name }}</td>
+          <td>{{ '%.0f' % variable.content }}%</td>
+          <td>{{ variable.alcohol_type }}</td>
+          <td>{{ variable.alcohol_sub_category }}</td>
+          <td>
+            <button class="btn btn-primary btn-sm edit-variable" data-name="{{ variable.name }}">Modifier</button>
+            <button class="btn btn-danger btn-sm delete-variable" data-name="{{ variable.name }}">Supprimer</button>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Initialiser le plugin DataTables
+      $('#barTable').DataTable();
+
+      // Gestion du formulaire de création
+      $('#createVariableForm').submit(function(event) {
+        event.preventDefault();
+        var name = $('#nameInput').val();
+        var content = parseFloat($('#contentInput').val());
+        var type = $('#typeInput').val();
+        var subCategory = $('#subCategoryInput').val();
+
+        // Vérifier les valeurs saisies
+        if (!isNaN(content) && name && type && subCategory) {
+          var url = 'http://localhost:8000/bar/?name=' + name + '&content=' + content + '&alcohol_type=' + type + '&alcohol_sub_category=' + subCategory;
+
+          $.ajax({
+            url: url,
+            type: 'POST',
+            success: function(response) {
+              location.reload(); // Recharger la page
+            },
+            error: function(error) {
+              alert('Une erreur s\'est produite lors de l\'ajout de la variable.');
+            }
+          });
+        }
+      });
+
+      // Gestion des boutons Modifier
+      $(document).on('click', '.edit-variable', function() {
+        var name = $(this).data('name');
+        // Récupérer les nouvelles valeurs pour la modification
+      
+        var content = parseFloat(prompt('Entrez le nouveau contenu :'));
+        if (!isNaN(content)) {
+          var url = 'http://localhost:8000/bar/' + encodeURIComponent(name) + '?content=' + encodeURIComponent(content);
+          $.ajax({
+            url: url,
+            type: 'PUT',
+            contentType: 'application/json',
+            success: function(response) {
+              location.reload(); // Recharger la page
+            },
+            error: function(error) {
+              alert('Une erreur s\'est produite lors de la modification de la variable.');
+            }
+          });
+        }
+      });
+      
+
+      // Gestion des boutons Supprimer
+      $(document).on('click', '.delete-variable', function() {
+        var name = $(this).data('name');
+        var confirmDelete = confirm('Êtes-vous sûr de vouloir supprimer cette variable ?');
+        if (confirmDelete) {
+          var url = 'http://localhost:8000/bar/' + name;
+          $.ajax({
+            url: url,
+            type: 'DELETE',
+            success: function(response) {
+              location.reload(); // Recharger la page
+            },
+            error: function(error) {
+              alert('Une erreur s\'est produite lors de la suppression de la variable.');
+            }
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
