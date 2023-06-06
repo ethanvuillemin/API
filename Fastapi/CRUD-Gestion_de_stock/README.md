@@ -53,18 +53,21 @@ Pour utiliser l'API, exécutez le fichier `main.py`. Une fois le serveur FastAPI
 
 Assurez-vous d'adapter les paramètres des requêtes en fonction des informations requises par chaque endpoint.
 
+## Apercu de l' API
+
 **Exemple d'utilisation :**
 
 1. Accédez à la page d'accueil de l'API : `http://localhost:8000/`
+
 2. Créez un nouvel utilisateur en utilisant le formulaire ou en effectuant une requête POST à `http://localhost:8000/users/` avec les informations requises.
+
 3. Accédez aux différentes routes pour la gestion du contenu du bar et du stock en utilisant les liens `http://localhost:8000/stock` & `http://localhost:8000/bar`
 
-## Apercu de l' API
 
 ![home](static/images/home.jpg)
 ![bar](static/images/bar.jpg)
 ![stock](static/images/stock.jpg)
 
-Le Rapport generer resemble a sa :
+Le Rapport generé resemble à sa :
 
 ![rapport](static/images/rapport.jpg)
