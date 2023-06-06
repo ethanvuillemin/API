@@ -68,6 +68,6 @@ Assurez-vous d'adapter les paramètres des requêtes en fonction des information
 ![bar](static/images/bar.jpg)
 ![stock](static/images/stock.jpg)
 
-Le Rapport generer resemble a sa :
+Le Rapport generé resemble à sa :
 
 ![rapport](static/images/rapport.jpg)
