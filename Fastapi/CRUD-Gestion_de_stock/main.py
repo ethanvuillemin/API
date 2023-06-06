@@ -5,11 +5,16 @@ from fastapi.templating import Jinja2Templates
 from fastapi.responses import FileResponse
 from sqlalchemy.orm import Session
 import pandas as pd
+import os
 import crud
 import models
 import schemas
 from database import SessionLocal, engine
 import datetime
+
+# Vérifier si le dossier Raport existe, sinon le créer
+if not os.path.exists('Rapport'):
+    os.makedirs('Rapport')
 
 # Crée toutes les tables définies dans les modèles dans la base de données
 models.Base.metadata.create_all(bind=engine)
@@ -150,26 +155,23 @@ def export_to_excel(request: Request, db: Session = Depends(crud.get_db)):
     for item in bar:
         data.append({
             "nom": item.name,
-            "Contenu en %": item.content,
-            # "Type": item.alcohol_type,
-            # "Sous-catégorie": item.alcohol_sub_category 
+            "Contenu en unite": item.content,
+            "Type": item.alcohol_type,
+            "Sous-catégorie": item.alcohol_sub_category 
         })
     
     # Créer un DataFrame à partir des données extraites
     df = pd.DataFrame(data)
     
-    # Formater la colonne "Contenu en %" en ajoutant le signe '%'
-    df["Contenu en %"] = df["Contenu en %"].apply(lambda x: f"{int(x)}%") 
-    
     # Obtenir la date du jour au format dd-mm-aaaa
     current_date = datetime.date.today().strftime("%d-%m-%Y")
     
     # Enregistrer le DataFrame dans un fichier Excel avec le nom du fichier contenant la date  
-    file_name = f'Rapport/Inventairebar_{current_date}.xlsx'
+    file_name = f'Rapport/Inventaire_Bar_{current_date}.xlsx'
     df.to_excel(file_name, index=False)
     
     # Retourner le fichier Excel en tant que réponse HTTP
-    return FileResponse(file_name, media_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', filename=f"Inventaire_Bar_{current_date}.xlsx")
+    return FileResponse(file_name, media_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', filename=file_name)
 
 
 ##################################################################
@@ -265,7 +267,7 @@ def export_to_excel(request: Request, db: Session = Depends(crud.get_db)):
     data = []
     for item in stock:
         data.append({
-            "nom": item.name,
+            "Nom": item.name,
             "Contenu": item.content,
             "Type": item.alcohol_type,
             "Sous-catégorie": item.alcohol_sub_category
@@ -278,11 +280,11 @@ def export_to_excel(request: Request, db: Session = Depends(crud.get_db)):
     current_date = datetime.date.today().strftime("%d-%m-%Y")
     
     # Enregistrer le DataFrame dans un fichier Excel avec le nom du fichier contenant la date
-    file_name = f'Rapport/InventaireStock_{current_date}.xlsx'
+    file_name = f'Rapport/Inventaire_Stock_{current_date}.xlsx'
     df.to_excel(file_name, index=False)
     
     # Retourner le fichier Excel en tant que réponse HTTP
-    return FileResponse(file_name, media_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', filename=f"InventaireStock_{current_date}.xlsx")
+    return FileResponse(file_name, media_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', filename=file_name)
 
 
 
