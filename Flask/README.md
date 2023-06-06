@@ -16,13 +16,13 @@ Ceci est une API Flask simple qui permet aux utilisateurs de télécharger, affi
 ## Installation
 
 1. Clonez ce dépôt sur votre machine locale :
-
+```bash
 git clone https://github.com/votre-utilisateur/api-flask.git
-
+```
 2. Accédez au répertoire du projet :
-
+```
 cd api-flask
-
+```
 
 3. Installez les dépendances requises en utilisant pip :
 
@@ -32,14 +32,14 @@ pip install -r requirements.txt
 ## Utilisation
 
 1. Exécutez l'application Flask :
-
+```
 python app.py
-
+```
 
 2. Accédez à l'adresse suivante dans votre navigateur :
-
-[label](http://localhost:5000/)
-
+```
+[http://localhost:5000/](http://localhost:5000/)
+```
 
 Vous verrez la liste des fichiers présents dans le dossier de téléchargement.
 
@@ -53,10 +53,3 @@ Vous verrez la liste des fichiers présents dans le dossier de téléchargement.
 - **templates/index.html**: Un modèle HTML utilisé pour afficher la liste des fichiers.
 - **Content_file/**: Le dossier de téléchargement où les fichiers téléchargés sont stockés.
 
-## Contributions
-
-Les contributions sont les bienvenues ! Si vous souhaitez améliorer cette API Flask, veuillez soumettre une pull request avec vos modifications.
-
-## Licence
-
-Ce projet est sous licence MIT. Vous pouvez consulter le fichier [LICENSE](LICENSE) pour plus d'informations.
