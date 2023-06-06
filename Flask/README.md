@@ -38,7 +38,7 @@ python app.py
 
 2. Accédez à l'adresse suivante dans votre navigateur :
 ```
-[http://localhost:5000/](http://localhost:5000/)
+http://localhost:5000/
 ```
 
 Vous verrez la liste des fichiers présents dans le dossier de téléchargement.
