@@ -58,7 +58,9 @@ Assurez-vous d'adapter les paramètres des requêtes en fonction des information
 **Exemple d'utilisation :**
 
 1. Accédez à la page d'accueil de l'API : `http://localhost:8000/`
+
 2. Créez un nouvel utilisateur en utilisant le formulaire ou en effectuant une requête POST à `http://localhost:8000/users/` avec les informations requises.
+
 3. Accédez aux différentes routes pour la gestion du contenu du bar et du stock en utilisant les liens `http://localhost:8000/stock` & `http://localhost:8000/bar`
 
 
