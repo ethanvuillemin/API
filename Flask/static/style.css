@@ -1,0 +1,53 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.file-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.file-item {
+    width: 250px;
+    height: 250px;
+    border: 2px solid #c4a05c;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.file-item a {
+    font-size: 1.2rem;
+    color: #c4a05c;
+    text-decoration: none;
+}
+
+.file-item:hover {
+    border-color: #333;
+}
+
+.file-item:hover a {
+    color: #333;
+}
+
+.file-item form {
+    margin-top: 1rem;
+}
+.file-item button {
+    background-color: #c4a05c;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+.file-item button:hover {
+    background-color: #333;
+}

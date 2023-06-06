@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Files</title>
+    <link rel="stylesheet" type="text/css" href="../static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Upload Files</h1>
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <input type="file" name="file" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.gif" required>
+            <input type="submit" value="Upload">
+        </form>
+        <br>
+        <h2>Uploaded Files:</h2>
+        <div class="file-grid">
+            {% for file in files %}
+            <div class="file-item">
+                <a href="{{ url_for('download_file', filename=file) }}" class="file-title">{{ file }}</a>
+                <br>
+                <button class="delete-button" data-filename="{{ file }}">Supprimer</button>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <script src="../static/scripts.js"></script>
+</body>
+</html>
