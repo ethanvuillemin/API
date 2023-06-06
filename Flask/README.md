@@ -17,11 +17,11 @@ Ceci est une API Flask simple qui permet aux utilisateurs de télécharger, affi
 
 1. Clonez ce dépôt sur votre machine locale :
 ```bash
-git clone https://github.com/votre-utilisateur/api-flask.git
+git clone https://github.com/ethanvuillemin/API/Flask.git
 ```
 2. Accédez au répertoire du projet :
 ```
-cd api-flask
+cd API/Flask
 ```
 
 3. Installez les dépendances requises en utilisant pip :
